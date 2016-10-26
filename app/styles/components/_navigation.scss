@@ -1,0 +1,12 @@
+// When you use a file only to be imported, start it with _
+// This tells SCSS that this file is a partial and is usually used with other files
+
+.top-bar, .top-bar ul {
+  background-color: $nav-background;
+}
+
+.top-bar {
+  .menu-text {
+    color: $nav-text-color;
+  }
+}
