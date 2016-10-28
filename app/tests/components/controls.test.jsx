@@ -20,7 +20,7 @@ describe('Controls', () => {
     });
 
     it('should render a Start button', () => {
-      var controls = TestUtils.renderIntoDocument(<Controls countdownStatus='stopped'/>);
+      var controls = TestUtils.renderIntoDocument(<Controls countdownStatus='paused'/>);
       var $el = $(ReactDOM.findDOMNode(controls));
       var $startButton = $el.find('button:contains(Start)');
       expect($startButton.length).toBe(1);
