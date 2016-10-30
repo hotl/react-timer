@@ -17,8 +17,22 @@ var Timer = React.createClass({
         case 'started':
           this.startTimer();
           break;
+        case 'stopped':
+          this.setState({
+            totalSeconds: 0,
+            timerStatus: 'paused'
+           });
+        case 'paused':
+          clearInterval(this.timer);
+          this.timer = undefined;
+          break;
       }
     }
+  },
+
+  componentWillUnmount: function() {
+    clearInterval(this.timer);
+    this.timer = undefined;
   },
 
   startTimer: function() {
@@ -31,7 +45,6 @@ var Timer = React.createClass({
   },
 
   handleStatusChange: function(newStatus) {
-    console.log(newStatus);
     this.setState({
       timerStatus: newStatus
     });
